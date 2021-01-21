@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{{.Title}}</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+        {{.Title}} {{.Count}} count
+        <form class="contact-form" id="app" @submit="checkForm"  method="post">
+            <button type="submit" class="btn btn-large">実行</button>
+        </form>
+        <ul>
+          </ul>
+    </div>
+    <script>
+        var app = new Vue({ 
+            el: '#app',
+            methods:{
+            checkForm: function (e) {
+                    e.preventDefault();
+                    axios.get('https://www.google.co.jp/').then((response) => {})
+
+                    axios.post('https://www.google.co.jp/', {
+                        firstName: 'Fred',
+                        lastName: 'Flintstone'
+                    })
+                }
+            },
+        });
+    </script>
+  </body>
+</html>
